@@ -40,11 +40,7 @@ pub(crate) fn serial_log(baud: u32, port: String, path: Option<PathBuf>, print: 
 
     // Read from serial port and write to file
     let mut line = String::new();
-    let mut colour = String::new();
-    let mut style = String::new();
     let mut reading_ansi_code = false;
-    let mut coloured_string = String::new();
-    let mut ansi_code = String::new();
     loop {
         let mut buffer: Vec<u8> = vec![0; 1000];
         match serial_port.read(buffer.as_mut_slice()) {
@@ -61,7 +57,6 @@ pub(crate) fn serial_log(baud: u32, port: String, path: Option<PathBuf>, print: 
                                 line.push(character);
                                 if print {
                                     print!("{}", &line);
-                                    println!("Colour: {}", colour);
                                 }
                                 file.write_all(&with_time(&line).as_bytes()).expect("Failed to write to file");
                                 file.flush().expect("Failed to flush file");
