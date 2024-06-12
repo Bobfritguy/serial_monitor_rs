@@ -1,11 +1,12 @@
 use std::io;
 use std::time::Duration;
+use crossterm::style::Stylize;
 use serialport::SerialPort;
 use crate::printing;
 
 
 pub(crate) fn open_port(port: String, baud: u32) -> Box<dyn SerialPort> {
-    println!("Opening port: {:?} with baud rate: {}", port, baud);
+    println!("Opening port: {} with baud rate: {}", port.clone().white(), baud.to_string().white());
     let serial_port = match serialport::new(&port, baud)
         .timeout(Duration::from_millis(10))
         .open(){
@@ -32,7 +33,7 @@ pub(crate) fn listen(baud: u32, port: String) {
         match serial_port.read(buffer.as_mut_slice()) {
             Ok(t) => {
                 if t > 0 {
-                    printing::print_serial_data(&buffer[..t]);
+                    //printing::get_serial_as_string(&buffer[..t], true);
                 }
             }
             Err(ref e) if e.kind() == io::ErrorKind::TimedOut => (),
