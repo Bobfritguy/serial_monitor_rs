@@ -1,7 +1,5 @@
 // Print Serial string
 
-
-
 use colored::{ColoredString, Colorize, Style};
 
 //
@@ -22,46 +20,44 @@ use colored::{ColoredString, Colorize, Style};
 //
 // }
 
-
-
 enum LineStyles {
-// Text Formatting
-//
-// 0: Reset / Normal (all attributes off)
-// 1: Bold or increased intensity
-// 2: Faint, decreased intensity
-// 3: Italicized (not widely supported)
-// 4: Underlined
-// 5: Slow Blink
-// 6: Rapid Blink (MS-DOS ANSI.SYS; 150+ per minute; not widely supported)
-// 7: Reverse video (swap foreground and background colors)
-// 8: Conceal (not widely supported)
-// 9: Crossed-out (not widely supported)
-//
-// Text Colors
-// Foreground Colors
-//
-// 30: Black
-// 31: Red
-// 32: Green
-// 33: Yellow
-// 34: Blue
-// 35: Magenta
-// 36: Cyan
-// 37: White
-// 90-97: Bright versions of the above colors (i.e., 90 is bright black (grey), 91 is bright red, etc.)
-//
-// Background Colors
-//
-// 40: Black
-// 41: Red
-// 42: Green
-// 43: Yellow
-// 44: Blue
-// 45: Magenta
-// 46: Cyan
-// 47: White
-// 100-107: Bright versions of the above colors
+    // Text Formatting
+    //
+    // 0: Reset / Normal (all attributes off)
+    // 1: Bold or increased intensity
+    // 2: Faint, decreased intensity
+    // 3: Italicized (not widely supported)
+    // 4: Underlined
+    // 5: Slow Blink
+    // 6: Rapid Blink (MS-DOS ANSI.SYS; 150+ per minute; not widely supported)
+    // 7: Reverse video (swap foreground and background colors)
+    // 8: Conceal (not widely supported)
+    // 9: Crossed-out (not widely supported)
+    //
+    // Text Colors
+    // Foreground Colors
+    //
+    // 30: Black
+    // 31: Red
+    // 32: Green
+    // 33: Yellow
+    // 34: Blue
+    // 35: Magenta
+    // 36: Cyan
+    // 37: White
+    // 90-97: Bright versions of the above colors (i.e., 90 is bright black (grey), 91 is bright red, etc.)
+    //
+    // Background Colors
+    //
+    // 40: Black
+    // 41: Red
+    // 42: Green
+    // 43: Yellow
+    // 44: Blue
+    // 45: Magenta
+    // 46: Cyan
+    // 47: White
+    // 100-107: Bright versions of the above colors
     Reset = 0,
     Bold = 1,
     Faint = 2,

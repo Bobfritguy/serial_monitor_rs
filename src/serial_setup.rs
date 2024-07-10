@@ -1,5 +1,5 @@
-use std::path::PathBuf;
 use chrono::Local;
+use std::path::PathBuf;
 
 pub(crate) fn generate_log_filename() -> String {
     let now = Local::now();
@@ -14,7 +14,7 @@ pub(crate) fn baud_validate(s: &str) -> Result<u32, String> {
     match baud {
         Ok(0) => Err("Baud Rate cannot be zero".to_string()),
         Ok(rate) => Ok(rate),
-        Err(_) => Err("Invalid baud rate".to_string())
+        Err(_) => Err("Invalid baud rate".to_string()),
     }
 }
 

@@ -1,22 +1,25 @@
-extern crate core;
 extern crate alloc;
+extern crate core;
 
-mod printing;
-mod serial_setup;
-mod serial_log;
 mod list_ports;
 mod listening;
+mod printing;
+mod serial_log;
+mod serial_setup;
 mod terminal;
 
-
-use std::path::PathBuf;
-use clap::Subcommand;
 use clap::Parser;
-
+use clap::Subcommand;
+use std::path::PathBuf;
 
 /// Read a serial port and log to file, provides helper function to display available ports
 #[derive(Parser)]
-#[command(name = "serial_logger", version = "1.0", author = "Séamus Knightly <seamusk@netfeasa.com>", about = "Program for Logging serial data")]
+#[command(
+    name = "serial_logger",
+    version = "1.0",
+    author = "Séamus Knightly <seamusk@netfeasa.com>",
+    about = "Program for Logging serial data"
+)]
 struct SerialLogger {
     #[command(subcommand)]
     command: Commands,
@@ -29,10 +32,9 @@ enum Commands {
         /// List available ports
         #[arg(short, long)]
         all: bool,
-
     },
     /// Log serial data to file
-    Log{
+    Log {
         /// Baud rate for serial connection
         #[arg(short, long, value_name = "BAUD RATE", value_parser = serial_setup::baud_validate)]
         baud: u32,
@@ -47,7 +49,7 @@ enum Commands {
         print: bool,
     },
     /// Listen to serial port
-    Listen{
+    Listen {
         /// Baud rate for serial connection
         #[arg(short, long, value_name = "BAUD RATE", value_parser = serial_setup::baud_validate)]
         baud: u32,
@@ -56,14 +58,14 @@ enum Commands {
         port: String,
     },
     /// Terminal for serial port
-    Terminal{
+    Terminal {
         /// Baud rate for serial connection
         #[arg(short, long, value_name = "BAUD RATE", value_parser = serial_setup::baud_validate)]
         baud: u32,
         /// Port to connect to
         #[arg(long, value_name = "PORT", value_parser = serial_setup::port_validate)]
         port: String,
-    }
+    },
 }
 
 fn main() {
@@ -73,7 +75,12 @@ fn main() {
         Commands::ListPorts { all } => {
             list_ports::list_available_ports(all);
         }
-        Commands::Log { baud, port, path, print } => {
+        Commands::Log {
+            baud,
+            port,
+            path,
+            print,
+        } => {
             serial_log::serial_log(baud, port, path, print);
         }
         Commands::Listen { baud, port } => {
@@ -84,5 +91,3 @@ fn main() {
         }
     }
 }
-
-

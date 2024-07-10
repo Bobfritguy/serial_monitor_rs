@@ -1,0 +1,18 @@
+[Wed 12/06/2024 14:06:41:073]  ========== Beginning Serial Log ===============
+[Wed 12/06/2024 14:06:44:739] [00:00:00.002,000] <inf> AT_HOST_LIB: Initt handle
+[Wed 12/06/2024 14:06:44:754] [00:00:00.003,000] <dbg> modem_hl7812: hl7812_netfeasa_init: Current pm status: 3
+[Wed 12/06/2024 14:06:44:772] [00:00:00.003,000] <dbg> modem_hl7812: hl7812_driver_pm_action: PM_DEVICE_ACTION_TURN_ON
+[Wed 12/06/2024 14:06:44:789] [00:00:00.003,000] <dbg> AT_HOST_LIB: modem_serial_evnt_handler: step m: 0 ENABLE_POWER_RAIL
+[Wed 12/06/2024 14:06:46:757] [00:00:02.003,000] <dbg> AT_HOST_LIB: modem_serial_evnt_handler: step m: 1 INIT_DEV
+[Wed 12/06/2024 14:06:46:762] AT Client is getting ready...
+[Wed 12/06/2024 14:06:46:776] [00:00:02.003,000] <dbg> modem_hl7812: hl7812_netfeasa_init: HL7812 Init
+[Wed 12/06/2024 14:06:46:791] [00:00:02.003,000] <dbg> modem_hl7812: hl7812_netfeasa_init: INIT workq
+[Wed 12/06/2024 14:06:46:801] [00:00:02.003,000] <inf> modem_hl7812: Modem Run
+[Wed 12/06/2024 14:06:46:813] [00:00:02.003,000] <dbg> modem_hl7812: allow_sleep: Keep awake
+[Wed 12/06/2024 14:06:46:828] [00:00:02.003,000] <dbg> modem_hl7812: allow_sleep_with_timeout: Keep awake
+[Wed 12/06/2024 14:06:46:846] [00:00:02.014,000] <dbg> modem_hl7812: hl7812_netfeasa_init: MODE-RESTARTING & CONFIGURING...
+[Wed 12/06/2024 14:06:46:863] [00:00:02.014,000] <dbg> modem_hl7812: modem_reset_and_configure: modem_reset_and_configure
+[Wed 12/06/2024 14:06:46:876] [00:00:02.014,000] <dbg> modem_hl7812: allow_sleep: Keep awake
+[Wed 12/06/2024 14:06:46:890] [00:00:02.014,000] <dbg> modem_hl7812: allow_sleep_with_timeout: Keep awake
+[Wed 12/06/2024 14:06:46:908] [00:00:02.014,000] <dbg> modem_hl7812: is_cmd_ready: 761 LOWPOWER VGPIO:1 GPIO6:0 UART_CTS:1
+[Wed 12/06/2024 14:06:46:922] [00:00:02.014,000] <dbg> modem_hl7812: wakeup_hl7812: Waiting to wakeup

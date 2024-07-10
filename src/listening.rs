@@ -1,15 +1,19 @@
-use std::io;
-use std::time::Duration;
+use crate::printing;
 use crossterm::style::Stylize;
 use serialport::SerialPort;
-use crate::printing;
-
+use std::io;
+use std::time::Duration;
 
 pub(crate) fn open_port(port: String, baud: u32) -> Box<dyn SerialPort> {
-    println!("Opening port: {} with baud rate: {}", port.clone().white(), baud.to_string().white());
+    println!(
+        "Opening port: {} with baud rate: {}",
+        port.clone().white(),
+        baud.to_string().white()
+    );
     let serial_port = match serialport::new(&port, baud)
         .timeout(Duration::from_millis(10))
-        .open(){
+        .open()
+    {
         Ok(port) => port,
         Err(e) => {
             eprintln!("Failed to open \"{:?}\". Error: {}", port, e);
